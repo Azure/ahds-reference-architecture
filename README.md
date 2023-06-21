@@ -12,14 +12,26 @@ This repo provides reference architecture and reference implementation on how to
   git clone https://github.com/UmarMohamedUsman/AHDS-Landing-Zone-Accelerator
   ```
 
-- Open this folder in Visual Studio Code to review all the "parameters-\*" files under three folders (01-Network-Hub, 02-Network-LZ & 03-AHDS) to review the values and change as needed per your environment.
+- Optionally open the cloned repo folder folder in Visual Studio Code to review all the "parameters-\*" files under three folders (01-Network-Hub, 02-Network-LZ & 03-AHDS) to review the values and change as needed per your environment.
 
-  - For example under 01-Network-Hub folder you have following three "parameters-\*" files, make sure to review all three of them. - parameters-deploy-vm.json - parameters-main.json - parameters-updateUDR.json
+  - For example under 01-Network-Hub folder you have following three "parameters-\*" files, make sure to review and update them as needed.
+    - parameters-deploy-vm.json
+    - parameters-main.json
+    - parameters-updateUDR.json
 
-- Using Visual Studio Code review and change "deployment.azcli" file under "Scenarios/Baseline/bicep" folder. For example, change Names and Azure Region as needed.
+- Using Visual Studio Code review and change "deployment.sh" file under "Scenarios/Baseline/bicep" folder. For example, change Names and Azure Region as needed.
   <br/>
 
-- Execute the commands in "deployment.azcli"
+- Make sure you login to Azure
+
+  ```sh
+   az login
+  ```
+
+- Execute the deployment file from terminal
+  ```sh
+   ./Scenarios/Baseline/bicep/deployment.sh
+  ```
 
 ### Testing
 
