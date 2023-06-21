@@ -99,13 +99,13 @@
       "value": "FunctionApp-AHDS"
     },
     "ApiUrlPath": {
-      "value": "https://raw.githubusercontent.com/Welasco/test/main/AHDS-Swagger.json"
+      "value": "https://raw.githubusercontent.com/Azure/ahds-reference-architecture/main/Scenarios/Baseline/bicep/03-AHDS/swagger/ahds-fhir-swagger.json"
     },
     "resourceSuffix": {
       "value": "AHDS"
     },
-    "authenticationType":{ 
+    "authenticationType": {
       "value": "managedIdentity"
-  }
+    }
   }
 }
