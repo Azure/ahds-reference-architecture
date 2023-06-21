@@ -19,7 +19,7 @@ This repo provides reference architecture and reference implementation on how to
 - Using Visual Studio Code review and change "deployment.azcli" file under "Scenarios/Baseline/bicep" folder. For example, change Names and Azure Region as needed.
   <br/>
 
-- Execute the script in "deployment.azcli"
+- Execute the commands in "deployment.azcli"
 
 ### Testing
 
