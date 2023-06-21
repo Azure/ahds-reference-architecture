@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "rgName" : {
+      "value": "ESLZ-AHDS-HUB"
+    },
+    "vnetSubnetName" : {
+      "value": "vmsubnet"
+    },
+    "vnetName" : {
+      "value": "VNet-HUB"
+    },
+    "vmSize" : {
+      "value": "Standard_D4s_v3"
+    },
+    "adminUsername" : {
+      "value": "jumpboxadmin"
+    },
+    "resourceSuffix":{
+      "value": "AHDS"
+    }
+  }
+}

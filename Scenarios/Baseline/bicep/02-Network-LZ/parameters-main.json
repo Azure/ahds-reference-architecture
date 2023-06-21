@@ -1,0 +1,118 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "rgName": {
+      "value": "ESLZ-AHDS-SPOKE"
+    },
+    "rgHubName": {
+      "value": "ESLZ-AHDS-HUB"
+    },
+    "vnetSpokeName": {
+      "value": "VNet-SPOKE"
+    },
+    "spokeVNETaddPrefixes": {
+      "value": [
+        "10.1.0.0/16"
+      ]
+    },
+    "spokeSubnets": {
+      "value": [
+        {
+          "name": "default",
+          "properties": {
+            "addressPrefix": "10.1.0.0/24"
+            
+          }
+        },
+        {
+          "name": "FHIR",
+          "properties": {
+            "addressPrefix": "10.1.1.0/24"
+          }
+        },
+        {
+          "name": "AppGWSubnet",
+          "properties": {
+            "addressPrefix": "10.1.2.0/27",
+            "serviceEndpoints": [
+              {
+                "service": "Microsoft.Storage"
+              }
+            ]
+          }
+        },
+        {
+          "name": "vmsubnet",
+          "properties": {
+            "addressPrefix": "10.1.3.0/24"
+          }
+        },
+        {
+          "name": "servicespe",
+          "properties": {
+            "addressPrefix": "10.1.4.0/24",
+            "privateEndpointNetworkPolicies": "Disabled"
+          }
+        },
+        {
+          "name": "APIM",
+          "properties": {
+            "addressPrefix": "10.1.5.0/24"
+          }
+        },
+        {
+          "name": "VNetIntegration",
+          "properties": {
+            "addressPrefix": "10.1.6.0/24",
+            "delegations": [
+              {
+                "name": "delegation",
+                "properties": {
+                  "serviceName": "Microsoft.Web/serverFarms"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "appGatewaySubnetName":{
+      "value": "AppGWSubnet"
+    },
+    "rtFHIRSubnetName": {
+      "value": "FHIR-RT"
+    },
+    "firewallIP": {
+      "value": "10.0.1.4"
+    },
+    "vnetHubName": {
+      "value": "VNet-HUB"
+    },
+    "rtAppGWSubnetName": {
+      "value": "AppGWSubnet-RT"
+    },
+    "vnetHUBRGName": {
+      "value": "ESLZ-AHDS-HUB"
+    },
+    "nsgFHIRName": {
+      "value": "FHIR-NSG"
+    },
+    "FHIRSubnetName": {
+      "value": "FHIR"
+    },
+    "nsgAppGWName": {
+      "value": "APPGW-NSG"
+    },
+    "dhcpOptions": {
+      "value": {
+        "dnsServers": [
+          "10.0.1.4"
+        ]
+      }
+    },
+    "resourceSuffix": {
+      "value": "AHDS"
+    }
+  }
+}

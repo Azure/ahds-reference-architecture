@@ -1,0 +1,24 @@
+# Retry Execution
+# Bash CLI
+acrName=$(az deployment sub show -n $rgSpoke --query properties.outputs.acrName.value -o tsv)
+keyVaultName=$(az deployment sub show -n $rgSpoke --query properties.outputs.keyvaultName.value -o tsv)
+storageName=$(az deployment sub show -n $rgSpoke --query properties.outputs.storageName.value -o tsv)
+healthWorkspace=$(az healthcareapis workspace list -g $rgSpoke --query "[].name" -o tsv)
+
+# PowerShell
+$acrName=$(az acr list -g $rgSpoke --query "[].name" -o tsv)
+$keyVaultName=$(az keyvault list -g $rgSpoke --query "[].name" -o tsv)
+$storageName=$(az storage account list -g $rgSpoke --query "[].name" -o tsv)
+$healthWorkspace=$(az healthcareapis workspace list -g $rgSpoke --query "[].name" -o tsv)
+
+# No HealthWorkspace
+az deployment sub create -n "ESLZ-AHDS-Supporting" -l "EastUS" -f 03-AHDS/main.bicep -p 03-AHDS/parameters-main.json -p acrName=$acrName -p keyvaultName=$keyVaultName -p storageAccountName=$storageName
+# With HealthWorkspace
+az deployment sub create -n "ESLZ-AHDS-Supporting" -l "EastUS" -f 03-AHDS/main.bicep -p 03-AHDS/parameters-main.json -p acrName=$acrName -p keyvaultName=$keyVaultName -p storageAccountName=$storageName -p workspaceName=$healthWorkspace
+
+# Quick Clean - Useful to recreate only the LZ(Spoke) without deleting the HUB
+az deployment sub delete -n ESLZ-Spoke-AHDS --no-wait
+az deployment sub delete -n ESLZ-AHDS-Supporting --no-wait
+az group delete -n $rgSpoke -y
+az network vnet peering delete --resource-group ESLZ-AHDS-HUB --name HUB-to-Spoke --vnet-name VNet-HUB
+az apim deletedservice purge --service-name APIM-AHDS-vws --location EastUS

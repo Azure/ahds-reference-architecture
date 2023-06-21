@@ -1,0 +1,111 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "rgName": {
+      "value": "ESLZ-AHDS-SPOKE"
+    },
+    "rgHubName": {
+      "value": "ESLZ-AHDS-HUB"
+    },
+    "keyVaultPrivateEndpointName": {
+      "value": "keyvault-pvt-ep"
+    },
+    "acrPrivateEndpointName": {
+      "value": "acr-pvt-ep"
+    },
+    "saPrivateEndpointName": {
+      "value": "sa-pvt-ep"
+    },
+    "functionAppPrivateEndpointName": {
+      "value": "functionApp-pvt-ep"
+    },
+    "vnetName": {
+      "value": "VNet-SPOKE"
+    },
+    "subnetName": {
+      "value": "servicespe"
+    },
+    "VNetIntegrationSubnetName": {
+      "value": "VNetIntegration"
+    },
+    "APIMsubnetName": {
+      "value": "APIM"
+    },
+    "APIMName": {
+      "value": "APIM-AHDS"
+    },
+    "privateDNSZoneSAfileName": {
+      "value": "privatelink.file.core.windows.net"
+    },
+    "privateDNSZoneSAtableName": {
+      "value": "privatelink.table.core.windows.net"
+    },
+    "privateDNSZoneSAqueueName": {
+      "value": "privatelink.queue.core.windows.net"
+    },
+    "privateDNSZoneACRName": {
+      "value": "privatelink.azurecr.io"
+    },
+    "privateDNSZoneKVName": {
+      "value": "privatelink.vaultcore.azure.net"
+    },
+    "privateDNSZoneSAName": {
+      "value": "privatelink.blob.core.windows.net"
+    },
+    "privateDNSZoneFunctionAppName": {
+      "value": "privatelink.azurewebsites.net"
+    },
+    "storageAccountType": {
+      "value": "Standard_GZRS"
+    },
+    "appGatewayName": {
+      "value": "APPGW"
+    },
+    "appGwyAutoScale": {
+      "value": {
+        "maxCapacity": 2,
+        "minCapacity": 1
+      }
+    },
+    "availabilityZones": {
+      "value": ["1", "2", "3"]
+    },
+    "appGatewaySubnetName": {
+      "value": "AppGWSubnet"
+    },
+    "appGatewayFQDN": {
+      "value": "api.example.com"
+    },
+    "appGatewayCertType": {
+      "value": "selfsigned"
+    },
+    "certPassword": {
+      "value": "ENTER PASSWORD"
+    },
+    "primaryBackendEndFQDN": {
+      "value": "APIM-AHDS.azure-api.net"
+    },
+    "hostingPlanName": {
+      "value": "HostingPlan-AHDS"
+    },
+    "fhirName": {
+      "value": "fhir-ahds"
+    },
+    "privateDNSZoneFHIRName": {
+      "value": "privatelink.azurehealthcareapis.com"
+    },
+    "functionAppName": {
+      "value": "FunctionApp-AHDS"
+    },
+    "ApiUrlPath": {
+      "value": "https://raw.githubusercontent.com/Welasco/test/main/AHDS-Swagger.json"
+    },
+    "resourceSuffix": {
+      "value": "AHDS"
+    },
+    "authenticationType":{ 
+      "value": "managedIdentity"
+  }
+  }
+}
