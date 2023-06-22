@@ -12,7 +12,7 @@ This repo provides reference architecture and reference implementation on how to
   git clone https://github.com/UmarMohamedUsman/AHDS-Landing-Zone-Accelerator
   ```
 
-- Optionally open the cloned repo folder folder in Visual Studio Code to review all the "parameters-\*" files under three folders (01-Network-Hub, 02-Network-LZ & 03-AHDS) to review the values and change as needed per your environment.
+- Optionally open the cloned repo folder in Visual Studio Code to review all the "parameters-\*" files under three folders (01-Network-Hub, 02-Network-LZ & 03-AHDS) to review the values and change as needed per your environment.
 
   - For example under 01-Network-Hub folder you have following three "parameters-\*" files, make sure to review and update them as needed.
     - parameters-deploy-vm.json
