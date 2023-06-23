@@ -55,9 +55,9 @@ $rgSpoke="ESLZ-AHDS-SPOKE"
 az deployment sub create -n "ESLZ-Spoke-AHDS" -l "EastUS" -f 02-Network-LZ/main.bicep -p 02-Network-LZ/parameters-main.json -p rgName=$rgSpoke
 
 # 03-AHDS
-# ** Important Note ** Review (or Update) 03-AHDS/parameters-main.json file to make sure APIMName on line 36 is globally unique and not used by any one else 
+# ** Important Note ** Review (or Update) 03-AHDS/parameters-main.json file to make sure APIMName on line 36 is globally unique and not used by any one else
 # ** and that APIM name should match Application Gateway backend pool value (primaryBackendEndFQDN) on line 81.
-az deployment sub create -n "ESLZ-AHDS" -l "EastUS" -f 03-AHDS/main.bicep -p 03-AHDS/parameters-main.json -p rgName=$rgSpoke
+az deployment sub create -n "ESLZ-AHDS" -l "EastUS" -f 03-AHDS/main.bicep -p 03-AHDS/parameters-main.json -p rgName=$rgSpoke -p appGatewayFQDN="api.example.com"
 
 # Victor ToDo: Prompt for Region and Application Gateway FQDN
 # Victor ToDo: Print the Public IP of the Application Gateway and add a statement saying they must create a DNS record for this IP
