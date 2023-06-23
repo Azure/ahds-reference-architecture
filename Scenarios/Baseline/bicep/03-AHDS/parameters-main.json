@@ -32,7 +32,7 @@
     "APIMsubnetName": {
       "value": "APIM"
     },
-    "APIMName": {
+    "APIMNamePrefix": {
       "value": "APIM-AHDS"
     },
     "privateDNSZoneSAfileName": {
@@ -81,10 +81,7 @@
       "value": "selfsigned"
     },
     "certPassword": {
-      "value": "ENTER PASSWORD"
-    },
-    "primaryBackendEndFQDN": {
-      "value": "APIM-AHDS.azure-api.net"
+      "value": "ENTER-PASSWORD"
     },
     "hostingPlanName": {
       "value": "HostingPlan-AHDS"

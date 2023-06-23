@@ -11,7 +11,8 @@ param vnetName string
 param subnetName string
 param APIMsubnetName string
 param VNetIntegrationSubnetName string
-param APIMName string
+param APIMNamePrefix string
+param APIMName string = '${APIMNamePrefix}-${uniqueString('acrvws', utcNow('u'))}'
 param privateDNSZoneSAfileName string
 param privateDNSZoneSAtableName string
 param privateDNSZoneSAqueueName string
@@ -30,7 +31,6 @@ param appGatewaySubnetName string
 param availabilityZones array
 param appGwyAutoScale object
 param appGatewayFQDN string
-param primaryBackendEndFQDN string
 @allowed([ 'managedIdentity', 'servicePrincipal' ])
 @description('Type of FHIR instance to integrate the loader with.')
 param authenticationType string = 'managedIdentity'
@@ -46,15 +46,13 @@ param containerNames array = [
   'export-trigger'
 ]
 
-
-
 param hostingPlanName string
 param fhirName string
 param workspaceName string = 'eslzwks${uniqueString('workspacevws', utcNow('u'))}'
 param functionAppName string
 param ApiUrlPath string
 
-
+var primaryBackendEndFQDN = '${APIMName}.azure-api.net'
 
 // Variables
 //var acrName = 'eslzacr${uniqueString(rgName, deployment().name)}'

@@ -479,12 +479,8 @@ module appgwroutetable 'modules/vnet/routetable.bicep' = {
     rtName: rtAppGWSubnetName
   }
 }
-resource appgwSubnet 'Microsoft.Network/virtualNetworks/subnets@2021-02-01' existing = {
-  scope: resourceGroup(rg.name)
-  name: '${vnetSpokeName}/${appGatewaySubnetName}'
-}
 
-module updateappgwNSG 'modules/vnet/attachNsg.bicep' = {
+module updateappgwNSG 'modules/vnet/updateSubnet.bicep' = {
   scope: resourceGroup(rg.name)
   name: 'AppGWSubnetNamensgupdate'
   params: {
@@ -492,29 +488,20 @@ module updateappgwNSG 'modules/vnet/attachNsg.bicep' = {
     vnetName: vnetSpokeName
     subnetName: appGatewaySubnetName
     nsgId: nsgappgwsubnet.outputs.nsgID
-    subnetAddressPrefix: appgwSubnet.properties.addressPrefix
-    serviceep: 'Microsoft.Storage'
   }
   dependsOn: [
     vnetspoke
   ]
 }
 
-resource fhirSubnet 'Microsoft.Network/virtualNetworks/subnets@2021-02-01' existing = {
-  scope: resourceGroup(rg.name)
-  name: '${vnetSpokeName}/${FHIRSubnetName}'
-}
-
-module updatefhirNSG 'modules/vnet/attachNsg.bicep' = {
+module updatefhirNSG 'modules/vnet/updateSubnet.bicep' = {
   scope: resourceGroup(rg.name)
   name: 'FhirSubnetNamensgupdate'
   params: {
     rtId: routetable.outputs.routetableID
     vnetName: vnetSpokeName
     subnetName: FHIRSubnetName
-    nsgId: nsgfhirsubnet.outputs.nsgID
-    subnetAddressPrefix: fhirSubnet.properties.addressPrefix
-    
+    nsgId: nsgfhirsubnet.outputs.nsgID    
   }
   dependsOn: [
     vnetspoke

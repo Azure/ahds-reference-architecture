@@ -46,16 +46,12 @@ az deployment sub create -n "ESLZ-AHDS-HUB-UDR" -l "EastUS" -f 01-Network-Hub/up
 az deployment sub create -n "ESLZ-HUB-VM" -l "EastUS" -f 01-Network-Hub/deploy-vm.bicep -p 01-Network-Hub/parameters-deploy-vm.json
 
 # 02-Network-LZ
-# Bash
-rgSpoke=ESLZ-AHDS-SPOKE
-# Powershell
-$rgSpoke="ESLZ-AHDS-SPOKE"
-az deployment sub create -n "ESLZ-Spoke-AHDS" -l "EastUS" -f 02-Network-LZ/main.bicep -p 02-Network-LZ/parameters-main.json -p rgName=$rgSpoke
+az deployment sub create -n "ESLZ-Spoke-AHDS" -l "EastUS" -f 02-Network-LZ/main.bicep -p 02-Network-LZ/parameters-main.json
 
 # 03-AHDS
 # ** Important Note ** Review (or Update) 03-AHDS/parameters-main.json file to make sure APIMName on line 36 is globally unique and not used by any one else 
 # ** and that APIM name should match Application Gateway backend pool value (primaryBackendEndFQDN) on line 81.
-az deployment sub create -n "ESLZ-AHDS" -l "EastUS" -f 03-AHDS/main.bicep -p 03-AHDS/parameters-main.json -p rgName=$rgSpoke
+az deployment sub create -n "ESLZ-AHDS" -l "EastUS" -f 03-AHDS/main.bicep -p 03-AHDS/parameters-main.json
 
 # Full Cleanup
 # Delete Resource Groups
