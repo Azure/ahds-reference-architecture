@@ -31,7 +31,7 @@ This repo provides reference architecture and reference implementation on how to
    az login
   ```
 
-- Execute the deployment file from terminal
+- To start the deployment execute the _deployment.sh_ file from terminal. Or _deployment.azcli_ can be opened in Visual Studio Code and executed line by line as well.
   ```sh
    ./Scenarios/Baseline/bicep/deployment.sh
   ```
