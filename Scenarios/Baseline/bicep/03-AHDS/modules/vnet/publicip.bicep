@@ -88,3 +88,4 @@ resource publicIpAddress_diagnosticSettings 'Microsoft.Insights/diagnosticSettin
 
 // Outputs
 output publicipId string = publicip.id
+output IpAddress string = publicip.properties.ipAddress

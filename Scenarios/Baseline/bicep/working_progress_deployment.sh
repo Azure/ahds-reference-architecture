@@ -132,7 +132,9 @@ az deployment sub create -n "ESLZ-Spoke-AHDS" -l $answerAzRegion -f 02-Network-L
 # 03-AHDS
 # ** Important Note ** Review (or Update) 03-AHDS/parameters-main.json file to make sure APIMName on line 36 is globally unique and not used by any one else
 # ** and that APIM name should match Application Gateway backend pool value (primaryBackendEndFQDN) on line 81.
-az deployment sub create -n "ESLZ-AHDS" -l $answerAzRegion -f 03-AHDS/main.bicep -p 03-AHDS/parameters-main.json -p rgName=$rgSpoke -p appGatewayFQDN=$answerAppGWFQDN
+# az deployment group create -g "ESLZ-HUB" -n "test-public-ip" -f test.bicep --query "properties.outputs.publicipappgw.value" -o tsv
+publicipappgw=$(az deployment sub create -n "ESLZ-AHDS" -l $answerAzRegion -f 03-AHDS/main.bicep -p 03-AHDS/parameters-main.json -p rgName=$rgSpoke -p appGatewayFQDN=$answerAppGWFQDN --query "properties.outputs.publicipappgw.value" -o tsv)
+echo "Please create a DNS record for the Application Gateway Public IP: $publicipappgw with the FQDN: $answerAppGWFQDN"
 
 # Victor ToDo: Prompt for Region and Application Gateway FQDN - Done
 # Victor ToDo: Print the Public IP of the Application Gateway and add a statement saying they must create a DNS record for this IP
