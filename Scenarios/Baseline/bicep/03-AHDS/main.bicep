@@ -772,7 +772,7 @@ module storageNetworkUpdate 'modules/storage/sanetwork-deploymentScript.bicep' =
   }
   dependsOn: [
     ndjsonqueue
-    bundleeventsub 
+    bundleeventsub
     appgw
     sarole
   ]
@@ -783,3 +783,4 @@ module storageNetworkUpdate 'modules/storage/sanetwork-deploymentScript.bicep' =
 output acrName string = acr.name
 output keyvaultName string = keyvault.name
 output storageName string = storage.name
+output publicipappgw string = publicipappgw.outputs.publicipId

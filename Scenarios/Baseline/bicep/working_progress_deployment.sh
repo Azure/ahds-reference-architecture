@@ -134,7 +134,7 @@ az deployment sub create -n "ESLZ-Spoke-AHDS" -l $answerAzRegion -f 02-Network-L
 # ** and that APIM name should match Application Gateway backend pool value (primaryBackendEndFQDN) on line 81.
 az deployment sub create -n "ESLZ-AHDS" -l $answerAzRegion -f 03-AHDS/main.bicep -p 03-AHDS/parameters-main.json -p rgName=$rgSpoke -p appGatewayFQDN=$answerAppGWFQDN
 
-# Victor ToDo: Prompt for Region and Application Gateway FQDN
+# Victor ToDo: Prompt for Region and Application Gateway FQDN - Done
 # Victor ToDo: Print the Public IP of the Application Gateway and add a statement saying they must create a DNS record for this IP
 
 echo Done
