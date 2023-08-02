@@ -9,7 +9,7 @@ This repo provides reference architecture and reference implementation on how to
 - Clone the repo
 
   ```sh
-  git clone https://github.com/UmarMohamedUsman/AHDS-Landing-Zone-Accelerator
+  git clone https://github.com/Azure/ahds-reference-architecture
   ```
 
 - Optionally open the cloned repo folder in Visual Studio Code to review all the "parameters-\*" files under three folders (01-Network-Hub, 02-Network-LZ & 03-AHDS) to review the values and change as needed per your environment.
@@ -56,7 +56,7 @@ To test **bulk upload** functionality, you can use the sample data provided in t
 - Grant the Postman service client app created for the previous testing, _Storage Blob Data Contributor_ role on the storage account.
 - Import the storage environment file from the [here](/Testing/bulk-load-fhir-storage.postman_environment.json) and the collection from [here](/Testing/bulk-load-fhir-storage.postman_collection.json) into Postman.
 - Update the environment variables with the values used for the previous testing for the client app.
-  - The resource parameter should be the url of the storage account for ex. https://eslzxxxxx.blob.core.windows.net
-  - The storageurl parameters should be the domain name for application gateway for ex. https://{yourdomainname}
+  - The resource parameter should be the url of the storage account, for example https://eslzxxxxx.blob.core.windows.net
+  - The storageurl parameters should be the domain name for application gateway, for example https://{yourdomainname}
 - Run the AuthorizeGetToken api first to retrieve the bearer token
 - Upload the file by selecting the Body tab in Postman for the Put Blob request, select binary in the radio list and select the good_bundles.zip file to upload.
