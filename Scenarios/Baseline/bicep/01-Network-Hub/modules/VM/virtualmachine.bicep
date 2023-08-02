@@ -38,7 +38,7 @@ module staccount '../storageaccount/storageaccount.bicep' = {
   }
 }
 
-// Criating VM jumpbox
+// Creating VM jumpbox
 resource jumpbox 'Microsoft.Compute/virtualMachines@2021-03-01' = {
   name: 'jumpbox'
   location: location
@@ -80,18 +80,3 @@ resource jumpbox 'Microsoft.Compute/virtualMachines@2021-03-01' = {
     }
   }
 }
-
-// resource vmext 'Microsoft.Compute/virtualMachines/extensions@2021-03-01' = {
-//   name: '${jumpbox.name}/csscript'
-//   location: resourceGroup().location
-//   properties: {
-//     publisher: 'Microsoft.Azure.Extensions'
-//     type: 'CustomScript'
-//     typeHandlerVersion: '2.1'
-//     autoUpgradeMinorVersion: true
-//     settings: {}
-//     protectedSettings: {
-//       script: script64
-//     }
-//   }
-// }

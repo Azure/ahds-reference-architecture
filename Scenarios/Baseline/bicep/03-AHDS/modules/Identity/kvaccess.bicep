@@ -3,7 +3,6 @@ param principalId string
 param vaultName string
 
 // Variables
-//var roleGuid = subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '4633458b-17de-408a-b874-0445c86b69e6')
 var roleGuid ='4633458b-17de-408a-b874-0445c86b69e6'
 
 // Defining Key Vault

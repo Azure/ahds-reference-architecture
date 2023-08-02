@@ -55,8 +55,6 @@ param ApiUrlPath string
 var primaryBackendEndFQDN = '${APIMName}.azure-api.net'
 
 // Variables
-//var acrName = 'eslzacr${uniqueString(rgName, deployment().name)}'
-//var keyvaultName = 'eslz-kv-${uniqueString(rgName, deployment().name)}'
 var storageFQDN = '${storageAccountName}.blob.core.windows.net'
 var audience = 'https://${workspaceName}-${fhirName}.fhir.azurehealthcareapis.com'
 var functionContentShareName = 'function'

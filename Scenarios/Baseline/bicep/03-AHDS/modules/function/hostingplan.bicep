@@ -1,7 +1,6 @@
 // Parameters
 param hostingPlanName string
 param location string
-//param functionSKU string = 'B1'
 param functionWorkers int = 5
 
 // Variables

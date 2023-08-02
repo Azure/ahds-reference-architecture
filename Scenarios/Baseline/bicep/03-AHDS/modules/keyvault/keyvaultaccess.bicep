@@ -18,26 +18,6 @@ resource keyvaultaccesspolicy 'Microsoft.KeyVault/vaults/accessPolicies@2021-06-
         }
         tenantId: subscription().tenantId
       }
-      /*
-      {
-        objectId: useraccessprincipalId
-        permissions: {
-          secrets: [
-            'all'
-          ]
-          storage: [
-            'all'
-          ]
-          keys: [
-            'all'
-          ]
-          certificates: [
-            'all'
-          ]
-        }
-        tenantId: subscription().tenantId
-      }
-      */
     ]
   }
 }

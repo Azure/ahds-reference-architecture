@@ -11,7 +11,6 @@ param secretValue string
 // Defining Key Vault
 resource kv 'Microsoft.KeyVault/vaults@2019-09-01' existing = {
   name: kvname
-  //scope: resourceGroup(subscriptionId, kvResourceGroup )
 }
 
 // Adding Key Vault Secret
