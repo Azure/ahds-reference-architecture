@@ -1,10 +1,11 @@
-# Azure Health Data Services Reference Architecture
+# Azure Health Data Services architecture guide
 
-This repo provides reference architecture and reference implementation on how to deploy Azure Health Data Services securely on Azure and integrate with various Azure services.
+This repo provides sample architecture and sample implementation on how to deploy Azure Health Data Services securely on Azure and integrate with various Azure services.
 
 ![ahds reference architecture](./docs/media/ahds-reference-architecture.png)
 
 ### Getting Started
+- There is an accompanying [AHDS architecture guide](https://learn.microsoft.com/en-us/azure/architecture/guide/data/azure-health-data-services) under Azure Architecture Center. Please review the same before proceeding with the deployment.
 
 - Clone the repo
 
@@ -39,7 +40,7 @@ This repo provides reference architecture and reference implementation on how to
 
 ### Testing
 
-Once the reference architecture deployed successfully you can test the solution for individual (single file) FHIR message flow using Postman.
+Once the architecture deployed successfully you can test the solution for individual (single file) FHIR message flow using Postman.
 
 - Visit another page and follow the instructions for setting up Postman
 - Make API calls to test FHIR service using Postman
