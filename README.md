@@ -60,3 +60,11 @@ To test **bulk upload** functionality, you can use the sample data provided in t
   - The storageurl parameters should be the domain name for application gateway, for example https://{yourdomainname}
 - Run the AuthorizeGetToken api first to retrieve the bearer token
 - Upload the file by selecting the Body tab in Postman for the Put Blob request, select binary in the radio list and select the good_bundles.zip file to upload.
+
+### Cleanup
+
+- Review and make necessary changes to the _cleanup.sh_ file under "Scenarios/Baseline/bicep" folder. For example, change resource group names, API Management name and Azure deployment names as needed.
+- To delete all the resources execute the _cleanup.sh_ file under "Scenarios/Baseline/bicep" folder
+  ```sh
+   ./Scenarios/Baseline/bicep/cleanup.sh
+  ```
